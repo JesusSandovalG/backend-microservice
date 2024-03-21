@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import com.service.store.entity.Store;
 import com.service.store.entity.Vehicle;
 
-@Service
+@Service("serviceRest")
 public class StoreServiceRestImpl implements StoreService {
 	@Autowired
 	private RestTemplate clientRest;
