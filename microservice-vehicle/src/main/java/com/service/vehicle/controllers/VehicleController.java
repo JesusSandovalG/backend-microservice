@@ -27,12 +27,12 @@ public class VehicleController {
 		return microService.findAll();
 	}
 	
-	@GetMapping("/vehice/(id)")
+	@GetMapping("/vehicle/{id}")
 	public Vehicle detail(@PathVariable Long id) {
 		return microService.findById(id);
 	}
 	
-	@DeleteMapping("/vehicle/(id)")
+	@DeleteMapping("/vehicle/{id}")
 	public ResponseEntity<Void> drop(@PathVariable Long id) {
 		microService.deleteById(id);
 		return ResponseEntity.noContent().build();
@@ -44,7 +44,7 @@ public class VehicleController {
 		return new ResponseEntity<>(vel, HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/vehicle/(id)")
+	@PutMapping("/vehicle/{id}")
 	public ResponseEntity<Vehicle> update(@PathVariable Long id, @RequestBody Vehicle instance){
 		if(microService.existsById(id)) {
 			instance.setId(id);
