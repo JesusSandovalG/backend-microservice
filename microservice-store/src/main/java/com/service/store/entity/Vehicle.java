@@ -12,7 +12,9 @@ public class Vehicle {
 	private String placa;
 	
 	private Date createdAt;
-
+	
+	private Integer port;
+	
 	public Long getId() {
 		return id;
 	}
@@ -51,6 +53,14 @@ public class Vehicle {
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	public Integer getPort() {
+		return port;
+	}
+
+	public void setPort(Integer port) {
+		this.port = port;
 	}
 	
 	
