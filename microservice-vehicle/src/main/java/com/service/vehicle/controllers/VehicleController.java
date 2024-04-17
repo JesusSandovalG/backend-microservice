@@ -38,6 +38,11 @@ public class VehicleController {
 	
 	@GetMapping("/vehicle/{id}")
 	public Vehicle detail(@PathVariable Long id) {
+		try {
+			Thread.sleep(2000l);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
 		return microService.findById(id);
 	}
 	
