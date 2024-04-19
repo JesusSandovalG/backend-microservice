@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +21,10 @@ import com.service.vehicle.service.VehicleService;
 
 @RestController
 public class VehicleController {
+	
+	@Autowired
+	private Environment env;
+	
 	@Autowired
 	private VehicleService microService;
 	
@@ -31,7 +36,7 @@ public class VehicleController {
 	@GetMapping("/list")
 	public List<Vehicle> list(){
 		return microService.findAll().stream().map(vel -> {
-			vel.setPort(port);
+			vel.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 			return vel;
 		}).collect(Collectors.toList());
 	}
