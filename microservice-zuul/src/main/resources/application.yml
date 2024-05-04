@@ -15,6 +15,9 @@ zuul:
     vehicle:
       service-id: service-vehicle
       path: /api/vehicle/**
+    user:
+      service-id: service-user
+      path: /api/us/**
 ribbon:
   ConnnectTimeout: 3000
   ReadTimeout: 10000
