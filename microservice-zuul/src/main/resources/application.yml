@@ -18,6 +18,10 @@ zuul:
     user:
       service-id: service-user
       path: /api/us/**
+    oauth:
+      service-id: microservice-auth
+      path: /api/security/**
+      sensitive-headers: Cookie, Set-Cookie
 ribbon:
   ConnnectTimeout: 3000
   ReadTimeout: 10000

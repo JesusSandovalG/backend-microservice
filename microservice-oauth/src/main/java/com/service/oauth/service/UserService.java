@@ -11,11 +11,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.service.commons.users.entity.User;
 import com.service.oauth.client.UserFeignClient;
 
-public class UserService implements UserDetailsService{
+@Service
+public class UserService implements UserDetailsService, IUserService{
 
 	private Logger log = LoggerFactory.getLogger(UserService.class);
 	
@@ -41,6 +43,11 @@ public class UserService implements UserDetailsService{
 		log.info("User authentication"+username);
 		
 		return new org.springframework.security.core.userdetails.User( user.getUsername(), user.getPassword(), user.getEnabled(), true, true, true, authorities);
+	}
+
+	@Override
+	public User findByUsername(String username) {
+		return client.findByUsername(username);
 	}
 
 }
