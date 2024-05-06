@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.17</version>
+		<version>2.3.12.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.service.oauth</groupId>
@@ -15,7 +15,7 @@
 	<description>Oauth</description>
 	<properties>
 		<java.version>11</java.version>
-		<spring-cloud.version>2021.0.8</spring-cloud.version>
+		<spring-cloud.version>Hoxton.SR12</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -60,6 +60,12 @@
 			<groupId>com.service.commons.users</groupId>
 			<artifactId>com.service.commons.users</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-data-jpa</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
